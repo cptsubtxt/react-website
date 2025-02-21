@@ -1,5 +1,6 @@
 // DepthOfFieldCalculator.tsx (Component Approach - Recommended)
 import { useState } from "react";
+import DoFImage from "./../assets/DoF.jpg";
 import { Form, FormGroup, Col, Row, Button } from "react-bootstrap";
 
 const DepthOfFieldCalculator = () => {
@@ -166,6 +167,41 @@ const DepthOfFieldCalculator = () => {
           <p>Depth of Field: {depthOfField} m</p>
         </div>
       )}
+
+      <div>
+        <div
+          style={{
+            position: "relative",
+            width: "500px",
+            height: "300px",
+            overflow: "hidden",
+          }}
+        >
+          {" "}
+          {/* Adjust size */}
+          <img
+            src={DoFImage}
+            alt="Landscape"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+          {/* Replace with your image */}
+          <div
+            style={{
+              position: "absolute",
+              top: "40%",
+              left: "30%",
+              transform: "translate(-50%, -50%)",
+              color: "black",
+              textAlign: "center",
+            }}
+          >
+            <p>{depthOfField} m</p>
+            <p style={{ marginTop: "10px" }}>{nearFocus} m</p>
+            <p style={{ marginTop: "5px" }}>{farFocus} m</p>
+          </div>
+        </div>
+        {/* ... rest of the form */}
+      </div>
     </Form>
   );
 };
